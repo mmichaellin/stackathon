@@ -15,6 +15,12 @@ const db = require('./database')
 //
 // Puppy.belongsTo(Owner)
 
+const Campus = require('./Campus')
+const Student = require('./Student')
+
+Student.belongsTo(Campus)
+Campus.hasMany(Student)
+
 module.exports = {
   // Include your models in this exports object as well!
   db
