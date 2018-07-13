@@ -44,6 +44,7 @@ export default class EditStudent extends Component {
           type='text'
           value={this.state.name}
           onChange={this.handleChange}
+          required
         />
         <br />
         <label>Campus:</label>
@@ -52,6 +53,7 @@ export default class EditStudent extends Component {
           type='text'
           value={this.state.content}
           onChange={this.handleChange}
+          required
         />
         <br />
         <label>GPA:</label>
@@ -60,6 +62,7 @@ export default class EditStudent extends Component {
           type='text'
           value={this.state.GPA}
           onChange={this.handleChange}
+          required
         />
         <br />
         <label>Profile Picture Img:</label>

@@ -13,28 +13,40 @@ router.get('/', async (req, res, next) => {
 })
 
 router.get('/:location', async (req, res, next) => {
-  const output = await Campus.findAll({
-    where: { location: req.params.location }
-  })
-  res.send(output)
+  try {
+    const output = await Campus.findAll({
+      where: { location: req.params.location }
+    })
+    res.send(output)
+  } catch (err) {
+    console.log(err)
+  }
 })
 
 router.get('/:location/students', async (req, res, next) => {
-  const output = await Student.findAll({
-    where: { theCampus: req.params.location }
-  })
-  res.send(output)
+  try {
+    const output = await Student.findAll({
+      where: { theCampus: req.params.location }
+    })
+    res.send(output)
+  } catch (err) {
+    console.log(err)
+  }
 })
 
 router.post('/', async (req, res, next) => {
-  const newCampus = await Campus.create(req.body)
-  res.send(newCampus)
+  try {
+    const newCampus = await Campus.create(req.body)
+    res.send(newCampus)
+  } catch (err) {
+    console.log(err)
+  }
 })
 
 router.put('/:location', async (req, res, next) => {
   try {
     const updated = await Campus.update(req.body, {
-      where: {location: req.params.location}
+      where: { location: req.params.location }
     })
     res.send(updated)
   } catch (err) {
@@ -44,10 +56,14 @@ router.put('/:location', async (req, res, next) => {
 })
 
 router.delete('/:location', async (req, res, next) => {
-  await Campus.destroy({
-    where: { location: req.params.location }
-  })
-  res.sendStatus(204)
+  try {
+    await Campus.destroy({
+      where: { location: req.params.location }
+    })
+    res.sendStatus(204)
+  } catch (err) {
+    console.log(err)
+  }
 })
 
 module.exports = router

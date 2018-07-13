@@ -12,31 +12,60 @@ router.get('/', async (req, res, next) => {
 })
 
 router.get('/:studentName', async (req, res, next) => {
-  const output = await Student.findAll({
-    where: {name: req.params.studentName}
-  })
-  let test = await Student.findAll()
-  res.send(output)
+  try {
+    const output = await Student.findAll({
+      where: { name: req.params.studentName }
+    })
+    let test = await Student.findAll()
+    res.send(output)
+  } catch (err) {
+    console.log(err)
+  }
 })
 
 router.post('/', async (req, res, next) => {
-  const newStudent = await Student.create(req.body)
-  res.send(newStudent)
+  try {
+    const newStudent = await Student.create(req.body)
+    res.send(newStudent)
+  } catch (err) {
+    console.log(err)
+  }
 })
 
 router.put('/:name', async (req, res, next) => {
-  console.log('ENTERING THE PUT ROUTEEE')
-  const updated = await Student.update(req.body, {
-    where: {name: req.params.name}
-  })
-  res.send(updated)
+  try {
+    const updated = await Student.update(req.body, {
+      where: { name: req.params.name }
+    })
+    res.send(updated)
+  } catch (err) {
+    console.log(err)
+  }
+})
+
+router.put('/:name/:newLocation', async (req, res, next) => {
+  try {
+    const updated = await Student.update({ theCampus: req.params.newLocation }, {
+      where: { name: req.params.name }
+    })
+    const updatedInstance = await Student.findOne({
+      where: { name: req.params.name }
+    })
+    res.send(updatedInstance)
+  } catch (err) {
+    console.log(err)
+  }
 })
 
 router.delete('/:name', async (req, res, next) => {
-  await Student.destroy({
-    where: {name: req.params.name}
-  })
-  res.sendStatus(204)
+  try {
+    await Student.destroy({
+      where: { name: req.params.name }
+    })
+    res.sendStatus(204)
+  } catch (err) {
+    console.log(err)
+  }
 })
 
 module.exports = router
