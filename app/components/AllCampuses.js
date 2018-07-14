@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import Campuses from './Campuses'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 export default class AllCampuses extends Component {
   constructor() {
@@ -23,7 +23,7 @@ export default class AllCampuses extends Component {
     }
   }
 
-  deleteCampus = async function(location){
+  deleteCampus = async function (location) {
     this.setState({
       campuses: this.state.campuses.filter(obj => {
         return obj.location !== location
@@ -36,7 +36,7 @@ export default class AllCampuses extends Component {
     return (
       <React.Fragment>
         <Link to='/addcampus'>Add Campus</Link>
-        <Campuses campuses={this.state.campuses} deleteCampus={this.deleteCampus}/>
+        <Campuses campuses={this.state.campuses} deleteCampus={this.deleteCampus} />
       </React.Fragment>
     )
   }

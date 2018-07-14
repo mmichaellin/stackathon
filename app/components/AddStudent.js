@@ -46,6 +46,7 @@ export default class AddStudent extends Component {
           value={this.state.name}
           onChange={this.handleChange}
         />
+        {this.state.name.length === 0 ? <div>Enter a name</div> : null}
         <br />
         <label>Campus</label>
         <input
@@ -54,6 +55,7 @@ export default class AddStudent extends Component {
           value={this.state.theCampus}
           onChange={this.handleChange}
         />
+        {this.state.theCampus.length === 0 ? <div>Enter the campus</div> : null}
         <br />
         <label>GPA:</label>
         <input
@@ -62,6 +64,7 @@ export default class AddStudent extends Component {
           value={this.state.GPA}
           onChange={this.handleChange}
         />
+        {(this.state.GPA < 0 || this.state.GPA > 4) ? <div>GPA must be between 0 and 4</div> : null}
         <br />
         <label>Profile Picture:</label>
         <input

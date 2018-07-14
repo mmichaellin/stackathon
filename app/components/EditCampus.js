@@ -108,17 +108,16 @@ export default class EditCampus extends Component {
         </form>
         <form >
           <select onChange={this.handleChange} name='studentName' >
-          <option>Select a Student</option>
+            <option>Select a Student</option>
             {
               studentsNotOnCampus.map(student => (
                 <option
-                value={student.name}
+                  value={student.name}
                 >{student.name}</option>
               ))
             }
           </select>
-          <button type='submit' onClick={this.campusChangeSubmit} >Change Campus</button>
-          {/* <input type='submit' onClick={this.campusChangeSubmit} /> */}
+          <button type='submit' onClick={this.campusChangeSubmit} >Add To Campus</button>
         </form>
         <h2>Students enrolled:</h2>
         {students.length > 0 ?

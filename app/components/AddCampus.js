@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 export default class AddCampus extends Component {
   constructor() {
@@ -43,6 +43,7 @@ export default class AddCampus extends Component {
           value={this.state.location}
           onChange={this.handleChange}
         />
+        {this.state.location.length === 0 ? <div>Enter the campus</div> : null}
         <br />
         <label>Info:</label>
         <input
@@ -51,6 +52,7 @@ export default class AddCampus extends Component {
           value={this.state.content}
           onChange={this.handleChange}
         />
+        {this.state.content.length === 0 ? <div>Enter some info</div> : null}
         <br />
         <label>Image:</label>
         <input

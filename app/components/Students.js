@@ -13,8 +13,8 @@ const Students = (props) => {
               <h3>{student.name}</h3>
             </Link>
             <div>
-              <button onClick={()=> deleter(student.name)} >Remove</button>
-              </div>
+              <button onClick={() => deleter(student.name)} >Remove</button>
+            </div>
           </div>
         ))
       }

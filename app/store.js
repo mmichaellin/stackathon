@@ -6,6 +6,8 @@ import thunkMiddleware from 'redux-thunk' // https://github.com/gaearon/redux-th
 
 const GOT_CAMPUSES_FROM_SERVER = 'GOT_CAMPUSES_FROM_SERVER'
 
+//in the future when refactoring to use redux
+
 export const gotCampusesFromServer = campuses => {
   return {
     type: GOT_CAMPUSES_FROM_SERVER,
