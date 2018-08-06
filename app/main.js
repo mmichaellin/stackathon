@@ -13,7 +13,6 @@ import Demo from './components/Demo'
 render(
   <Router>
     <div>
-      <h1>Stackathon Project</h1>
       {<Navbar />}
       <Switch>
         <Route exact path='/' component={Homepage} />

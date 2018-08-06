@@ -104,7 +104,6 @@ export default class Flute extends Component {
     const { url, playing, volume, muted, loop, played, playbackRate } = this.state
     return (
       <React.Fragment>
-        <div>hello</div>
         <div className="keys">
           <div className="key" ref={this.a} >
             <kbd>C</kbd>
@@ -146,9 +145,9 @@ export default class Flute extends Component {
         <div className='player-wrapper'>
           <ReactPlayer
             ref={this.ref}
-            className='react-player'
-            // width='100%'
-            // height='100%'
+            // className='react-player'
+            width='00%'
+            height='00%'
             url={url}
             playing={playing}
             loop={loop}
@@ -167,62 +166,63 @@ export default class Flute extends Component {
             onDuration={this.onDuration}
           />
         </div>
-
-        <table><tbody>
-          <tr>
-            <th>Controls</th>
-            <td>
-              <button onClick={this.stop}>Stop</button>
-              <button onClick={this.playPause}>{playing ? 'Pause' : 'Play'}</button>
-              <button onClick={this.setPlaybackRate} value={1}>1</button>
-              <button onClick={this.setPlaybackRate} value={1.5}>1.5</button>
-              <button onClick={this.setPlaybackRate} value={2}>2</button>
-            </td>
-          </tr>
-          <tr>
-            <th>Time</th>
-            <td>
-              <input
-                type='range' min={0} max={1} step='any'
-                value={played}
-                onMouseDown={this.onSeekMouseDown}
-                onChange={this.onSeekChange}
-                onMouseUp={this.onSeekMouseUp}
-              />
-            </td>
-          </tr>
-          <tr>
-            <th>Volume</th>
-            <td>
-              <input type='range' min={0} max={1} step='any' value={volume} onChange={this.setVolume} />
-            </td>
-          </tr>
-          <tr>
-            <th>
-              <label htmlFor='muted'>Muted</label>
-            </th>
-            <td>
-              <input id='muted' type='checkbox' checked={muted} onChange={this.toggleMuted} />
-            </td>
-          </tr>
-          <tr>
-            <th>
-              <label htmlFor='loop'>Loop</label>
-            </th>
-            <td>
-              <input id='loop' type='checkbox' checked={loop} onChange={this.toggleLoop} />
-            </td>
-          </tr>
-        </tbody></table>
-        <table><tbody>
-          <tr>
-            <th>URL</th>
-            <td>
-              <input ref={input => { this.urlInput = input }} type='text' placeholder='Enter URL' />
-              <button onClick={() => this.setState({ url: this.urlInput.value })}>Load</button>
-            </td>
-          </tr>
-        </tbody></table>
+        <div className="player">
+          <table ><tbody>
+            <tr>
+              <th className="text-left">Controls</th>
+              <td>
+                <button onClick={this.stop}>Stop</button>
+                <button onClick={this.playPause}>{playing ? 'Pause' : 'Play'}</button>
+                <button onClick={this.setPlaybackRate} value={1}>1</button>
+                <button onClick={this.setPlaybackRate} value={1.5}>1.5</button>
+                <button onClick={this.setPlaybackRate} value={2}>2</button>
+              </td>
+            </tr>
+            <tr>
+              <th className="text-left">Time</th>
+              <td>
+                <input
+                  type='range' min={0} max={1} step='any'
+                  value={played}
+                  onMouseDown={this.onSeekMouseDown}
+                  onChange={this.onSeekChange}
+                  onMouseUp={this.onSeekMouseUp}
+                />
+              </td>
+            </tr>
+            <tr>
+              <th className="text-left">Volume</th>
+              <td>
+                <input type='range' min={0} max={1} step='any' value={volume} onChange={this.setVolume} />
+              </td>
+            </tr>
+            <tr>
+              <th className="text-left">
+                <label htmlFor='muted'>Muted</label>
+              </th>
+              <td>
+                <input id='muted' type='checkbox' checked={muted} onChange={this.toggleMuted} />
+              </td>
+            </tr>
+            <tr>
+              <th className="text-left">
+                <label htmlFor='loop'>Loop</label>
+              </th>
+              <td>
+                <input id='loop' type='checkbox' checked={loop} onChange={this.toggleLoop} />
+              </td>
+            </tr>
+          </tbody></table>
+          <table><tbody>
+            <tr>
+              <th className="text-left">URL</th>
+              <td>
+                <input ref={input => { this.urlInput = input }} type='text' placeholder='Enter URL' />
+                <button onClick={() => this.setState({ url: this.urlInput.value })}>Load</button>
+              </td>
+            </tr>
+          </tbody></table>
+        </div>
 
       </React.Fragment>
     )
