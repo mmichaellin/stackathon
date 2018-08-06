@@ -216,7 +216,7 @@ export default class Guitar extends Component {
         </tbody></table>
         <table><tbody>
           <tr>
-            <th>Custom URL</th>
+            <th>URL</th>
             <td>
               <input ref={input => { this.urlInput = input }} type='text' placeholder='Enter URL' />
               <button onClick={() => this.setState({ url: this.urlInput.value })}>Load</button>
