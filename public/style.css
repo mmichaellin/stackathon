@@ -50,7 +50,7 @@ kbd {
 body {
   background: linear-gradient(237deg, #fffa1e, #9a4a78);
   background-size: 400% 400%;
-  animation: AnimationName 29s ease infinite;
+  animation: AnimationName 15s ease infinite;
 }
 
 @keyframes AnimationName {
