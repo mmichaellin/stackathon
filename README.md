@@ -1,5 +1,5 @@
 
-# The Soundboard
+# Soundgoodizer
 
 **By: Michael Lin**
 
